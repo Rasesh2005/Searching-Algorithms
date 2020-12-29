@@ -22,7 +22,7 @@ TOTAL_ROWS=30
 
 class Node:
     def __init__(self,row,col,total_rows):
-        self.color=WHITE
+        self.color=BLACK
         self.size=WIDTH//total_rows
         self.row=row
         self.col=col
@@ -33,7 +33,7 @@ class Node:
         self.h_score=float("inf")
         self.parent=None
     def reset(self):
-        self.color=WHITE
+        self.color=BLACK
     def get_pos(self):
         return self.row,self.col
     def is_open(self):
@@ -55,9 +55,9 @@ class Node:
         self.color=RED
 
     def is_barrier(self):
-        return self.color==BLACK
+        return self.color==WHITE
     def make_barrier(self):
-        self.color=BLACK
+        self.color=WHITE
 
     def is_path(self):
         return self.color==PURPLE
@@ -147,7 +147,8 @@ def a_star_algorithm(grid,startNode,endNode):
                 count+=1
                 queue.put((g_score[neighbour],count,neighbour))
                 openSet.add(neighbour)
-                neighbour.make_open()
+                if neighbour!=startNode:
+                    neighbour.make_open()
             # draw(WIN,grid)
         draw(WIN,grid)
         if currentNode!=startNode:
@@ -202,7 +203,7 @@ def mainGame():
                     if startNode==node:
                         startNode=None
                     if endNode==node:
-                        endNode==None
+                        endNode=None
             if event.type==pygame.KEYDOWN:
                 if event.key==K_SPACE and not started:
                     started=True
