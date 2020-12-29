@@ -17,6 +17,7 @@ CYAN=(0,255,255)
 WIDTH=600
 HEIGHT=600
 WIN=pygame.display.set_mode((WIDTH,HEIGHT))
+pygame.display.set_caption("A* Algorithm With diagonals Visualisation")
 
 TOTAL_ROWS=50
 
@@ -261,6 +262,8 @@ def mainGame():
                     startNode=None
                     endNode=None
                     started=False
+                if event.key==pygame.K_m:
+                    return
 
 if __name__ == "__main__":
     mainGame()

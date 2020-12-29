@@ -17,6 +17,7 @@ CYAN=(0,255,255)
 WIDTH=600
 HEIGHT=600
 WIN=pygame.display.set_mode((WIDTH,HEIGHT))
+pygame.display.set_caption("Dijkstra's Algorithm Visualisation")
 
 TOTAL_ROWS=30
 
@@ -120,7 +121,7 @@ def get_click_pos(pos):
 
     return row , col
 
-def a_star_algorithm(grid,startNode,endNode):
+def dijkstra_algorithm(grid,startNode,endNode):
     count=0
     queue=PriorityQueue()
     g_score={node:float("inf") for row in grid for node in row}
@@ -211,7 +212,7 @@ def mainGame():
                         for node in row:
                             # node.get_h_score(endNode.get_pos())
                             node.get_neighbours(grid)
-                    if not a_star_algorithm(grid,startNode,endNode):
+                    if not dijkstra_algorithm(grid,startNode,endNode):
                         grid=make_grid()
                         running=True
                         startNode=None
@@ -223,6 +224,8 @@ def mainGame():
                     startNode=None
                     endNode=None
                     started=False
+                if event.key==pygame.K_m:
+                    return
 
 if __name__ == "__main__":
     mainGame()
