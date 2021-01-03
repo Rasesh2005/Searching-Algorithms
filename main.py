@@ -7,7 +7,7 @@ pygame.init()
 
 WHITE=(255,255,255)
 GREEN=(0,255,0)
-WIN=pygame.display.set_mode((500,500))
+WIN=pygame.display.set_mode((600,600))
 pygame.display.set_caption("Main Menu")
 
 class Button:
@@ -33,9 +33,9 @@ class Button:
 
 
 
-b1=Button(GREEN,"Dijkstra's Algorithm",50,50,400,100)
-b2=Button(GREEN,"A* Algorithm Without Diagonals",50,160,400,100)
-b3=Button(GREEN,"A* Algorithm With Diagonals",50,270,400,100)
+b1=Button(GREEN,"Dijkstra's Algorithm",100,50,400,100)
+b2=Button(GREEN,"A* Algorithm Without Diagonals",100,155,400,100)
+b3=Button(GREEN,"A* Algorithm With Diagonals",100,260,400,100)
 while True:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:

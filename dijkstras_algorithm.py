@@ -1,5 +1,8 @@
 import pygame
 from queue import PriorityQueue
+from tkinter import Tk
+from tkinter import messagebox
+Tk().wm_withdraw()
 
 from pygame.constants import K_SPACE
 
@@ -213,6 +216,7 @@ def mainGame():
                             # node.get_h_score(endNode.get_pos())
                             node.get_neighbours(grid)
                     if not dijkstra_algorithm(grid,startNode,endNode):
+                        messagebox.showinfo("path not found","PATH To The End Node Does Not Exist!!")
                         grid=make_grid()
                         running=True
                         startNode=None

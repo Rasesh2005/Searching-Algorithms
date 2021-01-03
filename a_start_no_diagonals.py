@@ -1,7 +1,8 @@
 import pygame
 from queue import PriorityQueue
-
-from pygame.constants import K_SPACE
+from tkinter import Tk
+from tkinter import messagebox
+Tk().wm_withdraw()
 
 pygame.init()
 
@@ -210,13 +211,14 @@ def mainGame():
                     if endNode==node:
                         endNode=None
             if event.type==pygame.KEYDOWN:
-                if event.key==K_SPACE and not started:
+                if event.key==pygame.K_SPACE and not started:
                     started=True
                     for row in grid:
                         for node in row:
                             node.get_h_score(endNode.get_pos())
                             node.get_neighbours(grid)
                     if not a_star_algorithm(grid,startNode,endNode):
+                        messagebox.showinfo("path not found","PATH To The End Node Does Not Exist!!")
                         grid=make_grid()
                         running=True
                         startNode=None
