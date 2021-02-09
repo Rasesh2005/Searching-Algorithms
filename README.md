@@ -25,7 +25,7 @@ python main.py
 
 and a pygame window will open up as shown below:
 
-![Home Page](https://github.com/Rasesh2005/Searching-Algorithms-Visualizer/tree/master/SampleImages/HomePage.png?raw=true)
+![Home Page](https://github.com/Rasesh2005/Searching-Algorithms-Visualizer/blob/master/SampleImages/HomePage.PNG?raw=true)
 
 You can select any algorithm and choose the start and end point and hit space to get started
 
